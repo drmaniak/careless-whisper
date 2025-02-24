@@ -13,13 +13,14 @@ authors = [
 ]
 description = "Fine-tune OpenAI's Whisper model for the task of speech-audio diarization and build a searchable dataset of diarized audio transcript."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
   "numpy",
   "pandas",
   "matplotlib",
   "scipy",
   "torch",
+  "librosa",
   "datasets[audio]",
   "transformers",
   "torchaudio",
