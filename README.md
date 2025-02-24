@@ -11,7 +11,7 @@ Careless Whisper is an end-to-end solution that combines the power of OpenAI's W
 - Create searchable datasets from transcribed and diarized content
 - Query and explore audio content through a user-friendly interface
 
-## Features
+## Features (Proposed)
 
 - 🔊 **Enhanced Whisper Model**: Fine-tuned version of OpenAI's Whisper optimized for speaker diarization
 - 📥 **Media Processing**: Support for YouTube videos and podcast downloads
@@ -20,14 +20,15 @@ Careless Whisper is an end-to-end solution that combines the power of OpenAI's W
 - 🌐 **Web Interface**: User-friendly frontend for exploring the dataset
 - 🔄 **API Support**: RESTful API for integration with other services
 
-## Project Structure
-
-careless-whisper/
-├── careless_whisper/ # Main package directory
-├── data/ # Dataset storage
-├── models/ # Fine-tuned model checkpoints
-├── notebooks/ # Development and analysis notebooks
-└── scripts/ # Utility scripts
+<!--## Project Structure-->
+<!---->
+<!--careless-whisper/-->
+<!--├── careless_whisper/ # Main package directory-->
+<!--├── data/ # Dataset storage-->
+<!--├── models/ # Fine-tuned model checkpoints-->
+<!--├── notebooks/ # Development and analysis notebooks-->
+<!--└── scripts/ # Utility scripts-->
+<!---->
 
 ## Requirements
 
