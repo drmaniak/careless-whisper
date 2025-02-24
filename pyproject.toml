@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "careless-whisper"
+version = "0.1.0"
+authors = [
+  { name = "Manick Vennimalai", email = "manick.vennimalai@gmail.com" },
+  { name = "Tolu Ojo", email = "toluojo16@gmail.com" },
+  { name = "Gianfranco Ameri", email = "gianfrancoameri2002@gmail.com" },
+  { name = "Cameron B", email = "cameronboroumand3@gmail.com" },
+]
+description = "Fine-tune OpenAI's Whisper model for the task of speech-audio diarization and build a searchable dataset of diarized audio transcript."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "scipy",
+  "torch",
+  "datsets[audio]",
+  "transformers",
+  "torchaudio",
+  "wandb",
+  "ruff",
+  "fastapi[standard]",
+  "streamlit",
+]
+
+[project.urls]
+Repository = "https://github.com/drmaniak/careless-whisper"
+
+[tool.hatch.build.targets.wheel]
+packages = ["careless_whisper"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
