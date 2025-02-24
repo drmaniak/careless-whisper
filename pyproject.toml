@@ -20,7 +20,7 @@ dependencies = [
   "matplotlib",
   "scipy",
   "torch",
-  "datsets[audio]",
+  "datasets[audio]",
   "transformers",
   "torchaudio",
   "accelerate",
@@ -40,4 +40,4 @@ packages = ["careless_whisper"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py312"
+target-version = "py310"
