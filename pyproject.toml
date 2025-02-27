@@ -25,9 +25,10 @@ dependencies = [
   "numba",
   "librosa",
   "datasets[audio]",
-  "transformers",
+  "transformers[pytorch]",
   "torchaudio",
   "speechbrain",
+  "peft",
   "accelerate",
   "evaluate",
   "jiwer",
@@ -35,6 +36,7 @@ dependencies = [
   "ruff",
   "fastapi[standard]",
   "streamlit",
+  "pytest",
 ]
 
 [project.urls]
