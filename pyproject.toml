@@ -21,6 +21,8 @@ dependencies = [
   "scipy",
   "torch",
   "sounddevice",
+  "llvmlite",
+  "numba",
   "librosa",
   "datasets[audio]",
   "transformers",
