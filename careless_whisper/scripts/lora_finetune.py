@@ -110,10 +110,11 @@ def main(config_path):
         learning_rate=config.get("learning_rate", 1e-4),
         fp16=config.get("fp16", True),
         logging_steps=config.get("logging_steps", 10),
+        dataloader_num_workers=config.get("num_workers", 0),
         report_to="wandb",
         remove_unused_columns=False,
     )
-    training_args.generation_config = GenerationConfig()
+    training_args.generation_config = peft_model.generation_config
 
     # Instantiate the Seq2SeqTrainer.
     trainer = Seq2SeqTrainer(
