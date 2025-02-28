@@ -28,13 +28,18 @@ def data_collator(features):
     labels_list = []
     for f in features:
         # Use the processor to convert audio to model inputs.
-        inputs = processor(f["audio_file"], sampling_rate=16000, return_tensors="pt")
+        inputs = processor(
+            f["audio_file"]["array"],
+            sampling_rate=16000,
+            return_tensors="pt",
+            padding="max_length",
+        )
         input_features_list.append(inputs.input_features.squeeze(0))
         # Tokenize the text target.
         tokenized = processor.tokenizer(
             f["text"],
             truncation=True,
-            max_length=512,
+            max_length=448,
             padding="max_length",
             return_tensors="pt",
         )
