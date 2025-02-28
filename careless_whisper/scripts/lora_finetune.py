@@ -115,6 +115,7 @@ def main(config_path):
         remove_unused_columns=False,
     )
     training_args.generation_config = peft_model.generation_config
+    training_args.generation_max_length = 448
 
     # Instantiate the Seq2SeqTrainer.
     trainer = Seq2SeqTrainer(
