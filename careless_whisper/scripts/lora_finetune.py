@@ -8,9 +8,8 @@ import yaml
 from datasets import Audio, Features, Value, load_from_disk
 from peft import LoraConfig, get_peft_model
 from transformers import (
-    GenerationConfig,
     Seq2SeqTrainer,
-    TrainingArguments,
+    Seq2SeqTrainingArguments,
     WhisperForConditionalGeneration,
     WhisperProcessor,
 )
@@ -100,7 +99,7 @@ def main(config_path):
     print("LoRA adapters applied.")
 
     # Set up TrainingArguments with GPU/FP16 support and wandb logging.
-    training_args = TrainingArguments(
+    training_args = Seq2SeqTrainingArguments(
         output_dir=str(OUTPUT_DIR / "whisper-diarization-finetuned"),
         per_device_train_batch_size=config.get("per_device_train_batch_size", 2),
         gradient_accumulation_steps=config.get("gradient_accumulation_steps", 4),
@@ -114,8 +113,9 @@ def main(config_path):
         report_to="wandb",
         remove_unused_columns=False,
     )
-    training_args.generation_config = peft_model.generation_config
+    training_args.generation_config = model.generation_config
     training_args.generation_max_length = 448
+    training_args.generation_num_beams = 4
 
     # Instantiate the Seq2SeqTrainer.
     trainer = Seq2SeqTrainer(
