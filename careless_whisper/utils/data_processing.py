@@ -8,7 +8,8 @@ import soundfile as sf
 from datasets import Audio, Dataset, DatasetDict, Features, Value, load_dataset
 from tqdm import tqdm
 
-DATA_DIR = Path("../data")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
 
 
 # Assume you already have the following helper functions
@@ -159,12 +160,14 @@ def get_ami_dataset(
 
     meetings: dict[str, list[dict[str, Any]]] = defaultdict(list)
     # Arrange the examples by their meeting id
-    for example in dataset[split]:
+    for example in tqdm(
+        dataset[split], desc=f"Grouping {split} examples by meeting_id"
+    ):
         example["duration"] = abs(example["end_time"] - example["begin_time"])
         meetings[example["meeting_id"]].append(example)
 
     # Sort the meeting_id clips by begin_time
-    for meeting_id in meetings:
+    for meeting_id in tqdm(meetings, f"Sorting {split} meetings by time"):
         meetings[meeting_id].sort(key=lambda x: x["begin_time"])
 
     # Create training samples

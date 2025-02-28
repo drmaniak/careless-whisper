@@ -26,7 +26,7 @@ dependencies = [
   "numba",
   "librosa",
   "datasets[audio]",
-  "transformers[pytorch]",
+  "transformers",
   "torchaudio",
   "speechbrain",
   "peft",
